@@ -6,13 +6,16 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-  <div className="bg-white">
-    <div className='pt-6'>
+    <>
+    <div className="bg-white">
+    <div className='pt-6  columns-4'>
       <Breadcrumb></Breadcrumb>
+      <Select></Select>
     </div>
-    
-    <Select></Select>
   </div>
-
+      
+    </>
+  
+  
   )
 }
