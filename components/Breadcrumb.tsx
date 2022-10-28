@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
+import { FC, useState } from 'react'
 
 const data = {
   name: 'Project Name',
@@ -10,15 +8,19 @@ const data = {
   ],
 }
 
-export default function Breadcrumb() {
+interface IProps {
+    repository: any
+}
+
+export default function Breadcrumb(props: IProps) {
+    console.log("PROPS:", props)
     return(
         <nav aria-label="Breadcrumb">
             <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {data.breadcrumbs.map((breadcrumb) => (
-                <li key={breadcrumb.id}>
+                <li key={props.repository.id}>
                 <div className="flex items-center">
-                    <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
-                    {breadcrumb.name}
+                    <a href={ props.repository.owner ? props.repository.owner.html_url : '' } className="mr-2 text-sm font-medium text-gray-900" target="_blank">
+                    {props.repository.full_name ? props.repository.full_name.split('/')[0] : ''}
                     </a>
                     <svg
                     width={16}
@@ -33,10 +35,9 @@ export default function Breadcrumb() {
                     </svg>
                 </div>
                 </li>
-            ))}
             <li className="text-sm">
-                <a href={data.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {data.name}
+                <a href={props.repository.html_url} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600" target="_blank">
+                {props.repository.name}
                 </a>
             </li>
             </ol>
