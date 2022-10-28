@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
       <div className='p-10'>
-        <Table />
+        <Table commits={commits} />
       </div>
     </div>
   </div>
