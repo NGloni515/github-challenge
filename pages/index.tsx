@@ -8,9 +8,14 @@ export default function Home() {
   return (
     <>
     <div className="bg-white">
-    <div className='pt-6  columns-4'>
-      <Breadcrumb></Breadcrumb>
-      <Select></Select>
+    <div className='pt-6'>
+      <div className='md:grid md:grid-cols-4 md:gap-1'>
+        <Breadcrumb></Breadcrumb>
+        <div className='w-56'>
+          <Select />
+        </div>
+      </div>
+      
     </div>
   </div>
       
