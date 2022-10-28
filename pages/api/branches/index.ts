@@ -26,7 +26,6 @@ export default async function handler(
 export const getBranches = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
     console.log("GET BRANCHES: ")
   const branches : any | null = (await axios.get("https://api.github.com/repos/NGloni515/github-challenge/branches",{'headers':{'Authorization': "token "+process.env.GITHUB_PRIVATE_KEY}})).data
-  console.log("branches: ",branches)
   if(branches){
     return res.status(201).json({ branches, msg:'Branches data retrieved succesfully' })
   }else{

@@ -26,7 +26,6 @@ export default async function handler(
 export const getRepository = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
     console.log("GET REPOSITORY: ")
   const repository : any | null = (await axios.get("https://api.github.com/repos/NGloni515/github-challenge",{'headers':{'Authorization': "token "+process.env.GITHUB_PRIVATE_KEY}})).data
-  console.log("repository: ",repository)
   if(repository){
     return res.status(201).json({ repository, msg:'Repository data retrieved succesfully' })
   }else{
