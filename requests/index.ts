@@ -14,7 +14,7 @@ export const getBranchesRequest = async( ) => {
 export const getCommitsRequest = async(branch: string) => {
     const response = await fetch(`/api/commits?branch=${branch}`);
     const data = await response.json();
-    return data.branches;
+    return data.commits;
 }
 
 export const getHomeData = async(branch: string) => {
