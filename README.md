@@ -6,7 +6,7 @@ First, install the packages with:
 npm install
 ```
 
-Them, update the Github key with the one shared in the email
+Then, update the Github key GITHUB_PRIVATE_KEY in the .env file with the one shared in the email
 
 Finally, run the development server:
 
