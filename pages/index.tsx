@@ -21,7 +21,6 @@ export default function Home() {
           setBranches(branches)
           setCommits(commits)
         }
-        console.log("branches: ",branches)
     }
     setFetchData();
 }, []);

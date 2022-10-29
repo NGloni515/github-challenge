@@ -24,7 +24,6 @@ export default async function handler(
 }
 
 export const getCommits = async(req: NextApiRequest, res: NextApiResponse<Data>) => {
-    console.log("GET COMMITS: ",req.query.branch)
     const branch = req.query.branch || "main"
   const commits : any | null = (await axios.get("https://api.github.com/repos/NGloni515/github-challenge/commits?sha="+branch,{'headers':{'Authorization': "token "+process.env.GITHUB_PRIVATE_KEY}})).data
   if(commits){
