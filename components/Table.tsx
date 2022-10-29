@@ -6,7 +6,7 @@ interface IProp{
 
 export default function Table(props: IProp) {
     return(
-        <div className='bg-gray overflow-auto rounded-lg shadow'>
+        <div data-testid="commits-table" className='bg-gray overflow-auto rounded-lg shadow'>
             <table className='w-full'>
             <thead className='bg-gray-50 border-b-2 border-gray-200'>
                 <tr>
