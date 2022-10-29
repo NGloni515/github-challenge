@@ -6,7 +6,9 @@ First, install the packages with:
 npm install
 ```
 
-Then, run the development server:
+Them, update the Github key with the one shared in the email
+
+Finally, run the development server:
 
 ```bash
 npm run dev
@@ -14,11 +16,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-[API routes] can be accessed on [http://localhost:3000/api](http://localhost:3000/api).
-
 ## Tests
 
-As an extra I created some basic tests:
+As an extra I created some basic tests (don't forget to stop the server before running the tests):
 
 ```bash
 # to run frontend tests
