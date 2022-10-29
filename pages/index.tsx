@@ -26,6 +26,12 @@ export default function Home() {
     setFetchData();
 }, []);
 
+  const onSelectBranch = async (newCurrentBranch: string) => {
+    setCurrentBranch({name: newCurrentBranch})
+    const {commits} :any = await getHomeData(newCurrentBranch);
+    setCommits(commits)
+  }
+
   return (
     <>
     <div className="h-screen bg-white">
@@ -33,7 +39,7 @@ export default function Home() {
       <div className='md:grid md:grid-cols-4 md:gap-1'>
         <Breadcrumb repository={repository} />
         <div className='w-56'>
-          <Select branches={branches} />
+          <Select branches={branches} onSelectBranch={onSelectBranch} />
         </div>
       </div>
       <div className='p-10'>

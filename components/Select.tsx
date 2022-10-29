@@ -7,16 +7,20 @@ function classNames(...classes : any) {
 }
 
 interface IProps {
-  branches: any
+  branches: any,
+  onSelectBranch: (newCurrentBranch: string) => void,
 }
 
 export default function Select( props: IProps ) {
   const [selected, setSelected] = useState({name: 'main' })
-  
-  console.log("BRANCHES: ",props.branches)
-  console.log("selected: ",selected)
+
+  const onClickBranch = (value: any) => {
+    setSelected(value)
+    props.onSelectBranch(value.name)
+  }
+
   return (
-    <Listbox value={selected} onChange={setSelected}>
+    <Listbox value={selected} onChange={onClickBranch}>
       {({ open }) => (
         <>
           <div className="relative mt-1">
@@ -55,16 +59,16 @@ export default function Select( props: IProps ) {
                       <>
                         <div className="flex items-center">
                           <span
-                            className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
+                            className={classNames(selected || (branch.name === "main" && !selected.protection_url) ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                           >
                             {branch.name}
                           </span>
                         </div>
 
-                        {selected ? (
+                        {selected || (branch.name === "main" && !selected.protection_url) ? (
                           <span
                             className={classNames(
-                              active ? 'text-white' : 'text-indigo-600',
+                              active || (branch.name === "main" && !selected.protection_url) ? 'text-white' : 'text-indigo-600',
                               'absolute inset-y-0 right-0 flex items-center pr-4'
                             )}
                           >
